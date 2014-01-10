@@ -1,6 +1,6 @@
 # User stories for my dating site 
 
-*1. As a visitor, I can invite a friend/relative to join the site*
+<b>1. As a visitor, I can invite a friend/relative to join the site</b>
 2. As a visitor, I can accept the invitation to join the site
 3. As a user (dater), I can authorize a friend/relative to manage my profile (date manager)
 4. As a user (date manager), I can create a profile for my friend/relative
