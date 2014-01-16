@@ -20,3 +20,5 @@
 17. As a user (dater/date manager) I can report other daters for standing me up. <br>
 18. As an administrator, I can de-activate profiles of daters who have stood multiple people up (i.e. 3 strike rule).
 
+#Domain Modeling
+https://docs.google.com/spreadsheet/ccc?key=0Ap1Y6tJv-iRAdFI3ZFRlSExiWjJyd0s3cXc1V1AzcWc#gid=3
