@@ -1,3 +1,21 @@
+# User stories for Fridgeventory
+
+1. As a user, I can enter a recipe and save it in my account<br>
+2. As a user, I can find a recipe online and add it to my account<br>
+3. As a user, I can generate a grocery list from selected recipes<br>
+4. As a user, I can add an item to my fridge/pantry
+5. As a user, I can see a list of what is in my fridge/pantry<br>
+6. As a user, I can automatically add a grocery list to my fridge/pantry
+7. As a user, I can see the total expected cost of my grocery list<br>
+8. As a user, I can select ingredients in my pantry and generate suggested recipes with a list of missing ingredients<br>
+9. As a user, I can add/delete items from my fridge/pantry<br>
+10. As a user, I can view the contents of my fridge/pantry by section (i.e. meat, produce, spices)<br>
+11. As a user, I can cook a recipe and remove the associated ingredients from my fridge<br>
+12. As a user, I can clear sections of my pantry (i.e. meat, produce, spices)<br>
+13. As a user, I can keep a daily food diary <br>
+14. As a user, I can track the calories of the food I eat<br>
+
+
 # User stories for my dating site 
 
 *User stories required for MVP in <b>bold</b><br><br>
