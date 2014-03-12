@@ -17,6 +17,7 @@ class RecipesController < ApplicationController
   def create
   recipe = Recipe.new
   recipe.name = params["name"]
+  recipe.user_id = session[:user_id]
   recipe.save
   redirect_to "/recipes"
   # how do I add the user ID to the form when I create a new recipe?

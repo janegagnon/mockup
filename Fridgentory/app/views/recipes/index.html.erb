@@ -10,7 +10,11 @@
       <% @recipes.each do |recipe| %>
         <div class="col-sm-6 col-md-4">
             <a href="/recipes/<%= recipe.id %>/show"><div class="thumbnail">
+            <% if recipe.image_file.present? %>
             <img src="/assets/<%= recipe.image_file %>" style="width 260px; height 260px" >
+            <% else %>
+            <img src="/assets/Plate.jpg" style="width 260px; height 260px" >
+            <% end %>
               <div class="caption">
               <h4><%= recipe.name %></h4>
               </div>

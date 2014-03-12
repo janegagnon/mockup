@@ -19,7 +19,11 @@
     </ul>
 
     <div class="col-md-4">
-        <img src="/assets/<%= @recipe.image_file%>" width ="200">
+        <% if @recipe.image_file.present? %>
+            <img src="/assets/<%= recipe.image_file %>" style="width 260px; height 260px" >
+        <% else %>
+            <img src="/assets/Plate.jpg" width=260px >
+        <% end %>
       </div>
     </div>
 
