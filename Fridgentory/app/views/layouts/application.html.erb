@@ -4,21 +4,58 @@
   <meta charset="utf-8">
   <title>Fridgentory</title>
 
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.2/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.2/flatly/bootstrap.min.css">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.min.css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
   <style>
-    body {padding-top: 50px;}
-    .list{padding-bottom: 20px;}
-    .navbar{background-color: #008080; background-image: none;}
-    /*I want to change the color of the navbar -- how do I do that?*/
+      html, body {
+          height: 100%;
+          width: 100%;
+          padding: 0;
+          margin: 0;
+        }
+
+        #full-screen-background-image {
+          z-index: -999;
+          min-height: 100%;
+          min-width: 1024px;
+          width: 100%;
+          height: auto;
+          position: fixed;
+          top: 0;
+          left: 0;
+          opacity:0.8;
+        }
+
+        #full-screen-background-image-pages {
+          z-index: -999;
+          min-height: 100%;
+          min-width: 1024px;
+          width: 100%;
+          height: auto;
+          position: fixed;
+          top: 0;
+          left: 0;
+          opacity: 0.6;
+        }
+
+
+
+        #wrapper {
+          position: relative;
+          width: 800px;
+          min-height: 400px;
+          margin: 100px auto;
+          color: #333;
+        }
   </style>
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -39,13 +76,40 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/recipes/index">Recipes</a></li>
-        <li><a href="/grocery">Grocery List</a></li>
+      <% user = User.find_by(:id => session[:user_id]) %>
+        <% if user.present? %>
+          <li><a href="/recipes/index">Recipes</a></li>
+          <li><a href="/grocery/mylist">Grocery List</a></li>
+          <li><a href="/grocery/myfridge">My Fridge</a></li>
+        <% else %>
+          <li><a href="/recipes/index">Recipes</a></li>
+          <li><a href="/grocery/mylist">Grocery List</a></li>
+        <% end %>
+      </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+       <% user = User.find_by(:id => session[:user_id]) %>
+        <% if user.present? %>
+          <li><a href="/recipes/index">My Recipes</a></li>
+          <li><a href="/logout">Sign Out</a></li>
+        <% else %>
+          <li><a href="/users/new">Sign Up</a></li>
+          <li><a href="/login">Sign In</a></li>
+        <% end %>
+
       </ul>
     </div>
+
   </nav>
 
-  <div class="container">
+<style>
+body {padding-top: 75px; padding-left:50px; padding-right:50px;}
+    .list{padding-bottom: 20px;}
+    .navbar{ background-image: none;}
+</style>
+
+
+<div class="container">
     <% if notice.present? %>
       <div class="alert alert-dismissable alert-success">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -56,4 +120,7 @@
     <%= yield %>
   </div>
 </body>
+
+
+
 </html>

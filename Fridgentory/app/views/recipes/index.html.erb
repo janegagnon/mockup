@@ -1,13 +1,35 @@
-<div class="page-header">
-  <h1>My Recipes</h1>
+  <body>
+    <img alt="full screen background image" src="http://bit.ly/1ouXxa5" id="full-screen-background-image-pages" />
+
+<%if session[:user_id].present?%>
+<div class="page-header" font-color:white>
+  <center><h1>My Recipes</h1></center>
 </div>
 
-<% @recipes.each do |recipe| %>
-<div class="row">
-  <div class="col-md-12">
-    <h3><a href="/recipes/show"><%= recipe %></a></h3>
-    <!-- How do I add a query string to link to the specific recipe? -->
-  </div>
-</div>
+    <hr class="featurette-divider">
+      <% @recipes.each do |recipe| %>
+        <div class="col-sm-6 col-md-4">
+            <a href="/recipes/<%= recipe.id %>/show"><div class="thumbnail">
+            <img src="/assets/<%= recipe.image_file %>" style="width 260px; height 260px" >
+              <div class="caption">
+              <h4><%= recipe.name %></h4>
+              </div>
+            </div></a>
+        </div>
+      <% end %>
+
+<a href="/recipes/new">Add New</a>
+
+<% else %>
+<h1>Sign in to view recipes!</h1>
+    <% @recipes_all.each do |recipe| %>
+           <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+              <img src="/assets/<%= recipe.image_file %>" style="width 260px; height 260px" >
+              <div class="caption">
+              <h4><%= recipe.name %></h4>
+            </div>
+            </div></a>
+        </div>
+         <% end %>
 <% end %>
-

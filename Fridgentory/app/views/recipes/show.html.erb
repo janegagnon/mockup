@@ -1,26 +1,36 @@
-<div class="page-header">
-  <h1>Split Pea Soup</h1>
+<body>
+    <img alt="full screen background image pages" src="http://bit.ly/1npgnRv" id="full-screen-background-image-pages"/>
+
+<div class="page=header">
+  <h1><%= @recipe.name%></h1>
 </div>
 
-<div class="list">
-    <ls>
-    <li>2 bags split peas </li>
-    <li>3 carrots </li>
-    <li>1 yellow onion </li>
-    <li>2 stalks celery</li>
-    <li>6-8 Cups chicken broth</li>
-    <li>Worcestershire sauce</li>
-    <li>Salt & pepper </li>
-    <li>Beau monde</li>
-    <li> Ham </li>
-    </ls>
+
+<div class="row">
+    <div class="col-md-8">
+    <ul>
+      <% @ingredients.each do |ingredient| %>
+
+          <li><%= ingredient.serving_quantity %> <%= ingredient.serving_unit %>
+          <%= ingredient.item.name %>
+          <!-- How do I use the item ID to show the item in this context? -->
+    <% end %>
+    </div>
+    </ul>
+
+    <div class="col-md-4">
+        <img src="/assets/<%= @recipe.image_file%>" width ="200">
+      </div>
+    </div>
+
 </div>
 
-<div class= "row">
+
+<div class= "row" padding-left>
 <p class= "lead"><strong> Directions:</strong></p>
-<p> Dice vegetables and place all ingredients in crock pot. Simmer 6-8 hours.</p>
+<p> <%= @recipe.directions%> </p>
 </div>
-
-
+</div>
+</body>
 
 
